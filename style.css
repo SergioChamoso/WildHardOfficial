@@ -1,0 +1,616 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+
+}
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 60px 60px;
+}
+/* NAVBAR */
+.burger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 🔑 CLAVE */
+    padding: 0 40px;   /* margen visual a los lados */
+    z-index: 1000;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.3)
+    );
+}
+
+.navbar.scrolled {
+    background: rgba(0,0,0,0.9);
+}
+
+header {
+    padding-top: 80px;   /* MISMO valor que la navbar */
+}
+.navbar-logo {
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-right: auto; 
+    display: flex;
+    align-items: center;  
+         /* 🔑 lo empuja al extremo izquierdo */
+}
+.navbar-logo h2 {
+             /* 🔑 CLAVE ABSOLUTA */
+    font-size: 45px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #f052c6; 
+}
+
+/* ===== SOCIAL ICONS NAVBAR ===== */
+.nav-socials {
+    display: flex;
+    gap: 18px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-socials a {
+    color: #00cfff;
+    font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-socials a:hover {
+    color: #ff2ec8;
+    transform: scale(1.25);
+}
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: 0;   /* 🔑 ESTO lo empuja a la derecha */
+}
+
+.menu li a {
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    color: #00cfff;                /* AZUL */
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* HOVER ROSA */
+.menu li a:hover {
+    color: #ff2ec8;                /* ROSA */
+    text-shadow: 0 0 8px rgba(255, 46, 200, 0.8);
+}
+
+/* LINK ACTIVO (opcional) */
+.menu li a.active {
+    color: #ff2ec8;
+}
+
+.media-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0 60px;
+}
+
+.media-embed {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.media-embed iframe {
+    width: 100%;
+    height: 480px;
+    border-radius: 12px;
+    border: none;
+}
+/* MÓVIL */
+@media (max-width: 768px) {
+    .spotify-wrapper {
+    width: 100%;
+    max-width: 400px;   /* ⬅️ MÁS ANCHO */
+    padding: 0 16px;    /* aire en móviles pequeños */
+}
+
+.spotify-wrapper iframe {
+    width: 100%;
+    height: 480px;
+    border-radius: 16px;
+    border: none;
+}
+
+}
+
+/* CAROUSEL */
+.carousel {  
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+.carousel img.top {
+    object-position: center 13%;
+    opacity: 1;
+}
+.superior {
+    object-position: center 20%;
+    opacity: 1;
+}
+
+/* ===== TÍTULO SECCIÓN FORMACIÓN ===== */
+.members h2, .media-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+
+
+/* BAND DESCRIPTION */
+.bandlogo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 30px 30px 40px;
+}
+
+.bandlogo img {
+    max-width: 900px;   /* ajusta según el tamaño del logo */
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+}
+
+.band-description {
+    max-width: 1500px;
+    margin: 40px auto;
+    text-align: justify;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+/* MEMBERS */
+.members {
+    max-width: 1500px;
+    margin: 0 auto 100px;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    margin: 60px 0;
+    gap: 40px;
+    justify-content: center;
+}
+
+.member.reverse {
+    flex-direction: row-reverse;
+}
+
+.member img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    filter: grayscale(20%);
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+/* ===== IMÁGENES MIEMBROS ===== */
+
+/* Hover */
+.member img:hover {
+    transform: scale(1.07);
+    box-shadow: 
+        0 0 15px rgba(0, 207, 255, 0.6),
+        0 0 30px rgba(255, 46, 200, 0.4);
+}
+
+@media (max-width: 768px) {
+
+    .member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member.reverse {
+        flex-direction: column;
+    }
+
+    .member img {
+        width: 220px;
+        margin-bottom: 20px;
+    }
+}
+
+.member-text h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+     color: #00cfff;
+}
+
+.member-text p {
+    font-weight: 500;
+    line-height: 1.6;
+    font-size: 22px;
+    
+}
+/*MOBILE */
+
+@media (max-width: 768px) {
+    .member,
+    .member.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member img {
+        width: 220px;
+        height: 220px;
+    }
+
+
+}
+
+/* ===== MERCH ===== */
+.merch-section {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.merch-grid a {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.merch-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover brutal */
+.merch-grid a:hover img {
+    transform: scale(1.08);
+    box-shadow:
+        0 0 20px rgba(255, 46, 200, 0.6),
+        0 0 35px rgba(0, 207, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .merch-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .merch-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== VIDEOS ===== */
+.video-section {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.video-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card img {
+    width: 100%;
+    display:flex;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6); /* efecto glow rosa/rockero */
+}
+
+.video-card a{
+    text-decoration: none
+}
+
+.video-card p {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .video-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===== FOOTER ===== */
+/* ===== FOOTER FULL WIDTH ===== */
+.site-footer {
+    width: 100%;
+    background: #ff2ec8;
+    color: #000;
+    text-align: center;
+    padding: 12px 10px;      /* más fino */
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1.5px;
+    margin-top: 80px;
+}
+
+.site-footer p {
+    margin: 4px 0;          /* menos aire vertical */
+    font-size: 0.85rem;
+}
+
+.site-footer a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 -2px 15px rgba(255, 46, 200, 0.6);
+}
+/* MOBILE NAV */
+@media (max-width: 768px) {
+    .menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #000;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        display: none;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+        margin-left: auto;
+    }
+      .nav-socials {
+        display: flex !important;
+        gap: 15px;
+        margin-left: 10vw;
+    }
+}
+@media (max-width: 1024px) {
+    .logo h2 {
+        font-size: 34px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .menu li a {
+        font-size: 16px;
+    }
+
+    .nav-socials a {
+        font-size: 18px;
+    }
+}
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    /* Ocultamos menú y redes */
+    .menu,
+    .nav-socials {
+        display: none;
+    }
+
+    /* Burger visible */
+    .burger {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+        color: #00cfff;
+        cursor: pointer;
+    }
+
+    .logo h2 {
+        font-size: 30px;
+    }
+
+    /* MENU DESPLEGABLE */
+    .menu.active {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        display: flex;
+    }
+
+    .menu.active + .nav-socials {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding-bottom: 20px;
+    }
+}
+/* CONCIERTOS */
+.concert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.concert-card {
+    background: #111;
+    overflow: hidden;
+    border-radius: 6px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.concert-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.concert-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+.album-info {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: #eaeaea;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.album-info p {
+    margin-bottom: 20px;
+}
+
+.album-info a {
+    color: #00cfff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.album-info a:hover {
+    color: #ff2ec8;
+}
+
+.album-info .highlight {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+/* ===== H1 ROSA (TODAS LAS PÁGINAS) ===== */
+h1,h2 {
+    color: #ff2ec8;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+}
+/* LOVE N' LIES resaltado dentro del texto */
+.album-name {
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff2ec8, #00cfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Línea separadora con glow */
+.glow-divider {
+    width: 120px;
+    height: 3px;
+    margin: 25px auto 35px;
+    background: linear-gradient(90deg, #ff2ec8, #00cfff);
+    box-shadow: 0 0 15px rgba(255, 46, 200, 0.8);
+    border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    .concert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .concert-card img {
+        height: 380px;
+    }
+}
+@media (max-width: 600px) {
+    .concert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concert-card img {
+        height: 320px;
+    }
+}
+@media (max-width: 600px) {
+    .album-info {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    .album-info .highlight {
+        font-size: 1rem;
+    }
+}
