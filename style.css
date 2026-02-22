@@ -157,7 +157,9 @@ header {
     .media-embed {
     width: 100%;
     max-width: 430px;   /* ⬅️ MÁS ANCHO */
-    padding: 0 0px;    /* aire en móviles pequeños */
+    padding: 0 0px; 
+    justify-content: center;   /* aire en móviles pequeños */
+    
 }
 
 .media-embed iframe {
@@ -165,6 +167,8 @@ header {
     height: 400px;
     border-radius: 10px;
     border: none;
+    justify-content: center;
+    margin-right: 180px;
 }
 
 }
