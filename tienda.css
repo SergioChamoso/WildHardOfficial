@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+}
+
+main {
+    padding-top: 120px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 80px;
+}
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: row;      
+    align-items: center;      
+    
+    padding: 0 40px;
+    z-index: 1000;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.3)
+    );
+}
+
+.burger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+.navbar.scrolled {
+    background: rgba(0,0,0,0.9);
+}
+
+header {
+    padding-top: 80px;   /* MISMO valor que la navbar */
+}
+.logo {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-right: auto; 
+    display: flex;
+    align-items: center;          /* 🔑 lo empuja al extremo izquierdo */
+}
+.logo h2 {
+    margin-bottom: 40px;  
+    margin-right: 75vw;              /* 🔑 CLAVE ABSOLUTA */
+    font-size: 45px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: auto;   /* 🔑 ESTO lo empuja a la derecha */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #aaa;
+}
+
+
+
+.merch {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.merch-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.merch-links a {
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.merch-links a:hover {
+    transform: scale(1.05);
+}
+
+.merch-links img {
+    border-radius: 10px;
+}
