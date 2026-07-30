@@ -232,6 +232,108 @@ header {
     line-height: 1.8;
 }
 
+/* --- ESTILOS GENERALES Y MÓVIL (Por defecto, uno abajo del otro) --- */
+.contenedor-seccion {
+    display: flex;
+    flex-direction: column; /* Apila los elementos en vertical para móvil */
+    gap: 30px;              /* Espacio de separación entre la foto y el vídeo */
+    margin-top: 5%;
+    width: 100%;
+    align-items: center;    /* Centra ambos elementos en la pantalla del móvil */
+}
+
+.revista img, 
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* El vídeo vertical mantiene su aspecto de smartphone */
+.video-container video {
+    max-width: 320px;       /* Evita que en móviles grandes el vídeo se desparrame */
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+}
+
+/* --- ESTILOS PARA ORDENADOR (Pantallas medianas y grandes) --- */
+@media (min-width: 768px) {
+    .contenedor-seccion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;     
+        justify-content: center; 
+        gap: 40px;               
+        max-width: 1200px;       
+        margin: 5% auto 0 auto;  
+    }
+
+    /* CONTENEDORES PADRE ESTRUCTURALES */
+    .revista, .video-container, .promo-container {
+        flex: 1;                 
+        height: 550px;           /* Altura fija estricta para los tres bloques */
+        display: flex;
+        min-width: 0;            
+    }
+
+    .revista { justify-content: flex-end; }
+    .video-container { justify-content: center; }
+    .promo-container { justify-content: flex-start; }
+
+    /* 1. LA REVISTA (Izquierda) */
+    .revista img {
+        height: 100%;            
+        object-fit: contain;     
+        border-radius: 4px;      
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    /* 2. ¡LA CAJA DEL REEL DE INSTAGRAM! (Centro) */
+    /* Apuntamos tanto al blockquote inicial como al iframe que genera el script */
+    .video-container .instagram-media,
+    .video-container iframe {
+        width: 310px !important;       /* Forzamos el mismo ancho estricto que el CD */
+        min-width: 310px !important;   /* Evita que Instagram intente auto-expandirse */
+        height: 100% !important;       /* Forzamos a que llene los 550px de alto */
+        max-height: 550px !important;  
+        border-radius: 12px !important;/* Esquinas redondeadas estéticas */
+        border: none !important;       /* Eliminamos el recuadro gris nativo de Instagram */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        margin: 0 !important;          /* Centrado limpio */
+        transition: all 0.3s ease;
+    }
+
+    /* 3. EL CONTENEDOR DEL CD (Derecha) */
+    .promo-wrapper {
+        width: 310px;             /* Mismo ancho estricto que el reel */
+        height: 100%;             /* Misma altura estricta (550px) */
+        background-color: #000000;
+        display: flex;
+        align-items: center;      
+        justify-content: center;  
+        border-radius: 12px;      
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        overflow: hidden;         
+        transition: all 0.3s ease;
+    }
+
+    .promo-wrapper img {
+        width: 100%;              
+        height: auto;             
+        max-height: 100%;         
+        object-fit: contain;      
+    }
+
+    /* EFECTO HOVER UNIFICADO (Con animación rosa) */
+    .revista img:hover,
+    .video-container iframe:hover,
+    .video-container .instagram-media:hover,
+    .promo-wrapper:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 15px 30px rgba(255, 105, 180, 0.6) !important; /* Brillo rosa intenso */
+    }
+}
 /* MEMBERS */
 .members {
     max-width: 1500px;
