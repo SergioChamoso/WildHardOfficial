@@ -169,6 +169,7 @@ header {
     border: none;
     justify-content: center;
     margin-right: 0px;
+   
 }
 
 }
@@ -332,6 +333,60 @@ header {
     .promo-wrapper:hover {
         transform: translateY(-5px); 
         box-shadow: 0 15px 30px rgba(255, 105, 180, 0.6) !important; /* Brillo rosa intenso */
+    }
+}
+/* =======================================================
+   ESTILOS EXCLUSIVOS PARA MÓVILES (Pantallas pequeñas)
+   ======================================================= */
+@media (max-width: 767px) {
+    /* 1. SEPARACIÓN DEL DOSSIER Y LOGO DE LA REVISTA */
+    .contenedor-seccion {
+        display: flex;
+        flex-direction: column;  /* Fuerza a que se pongan uno debajo de otro */
+        align-items: center;
+        gap: 30px;               /* Añade separación controlada entre los bloques */
+        margin-top: 40px !important; /* ¡SOLUCIÓN! Empuja todo hacia abajo para separarlo del botón dossier */
+        width: 100%;
+        padding: 0 15px;         /* Da aire a los lados para que no toque los bordes del móvil */
+        box-sizing: border-box;
+    }
+
+    /* 2. REGLA PARA QUE NADA SE VEA DIMINUTO EN MÓVIL */
+    .revista, .video-container, .promo-container {
+        width: 100%;             /* Cada bloque ocupa todo el ancho del móvil */
+        height: auto !important; /* Cancelamos los 550px fijos de PC para que no se deformen */
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Las imágenes y el vídeo de Instagram se adaptarán al ancho real del móvil */
+    .revista img,
+    .promo-wrapper,
+    .promo-wrapper img {
+        width: 100% !important;
+        max-width: 340px !important; /* Tamaño ideal de lectura en horizontal para el móvil */
+        height: auto !important; 
+        min-width: 200px;    /* Mantiene la proporción perfecta sin achatarse */
+    }
+
+    /* El contenedor del CD ya no necesita fondo oscuro en móvil porque va en su propia fila */
+    .promo-wrapper {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+    
+    .promo-wrapper img {
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Le devolvemos la sombra a la foto del CD directamente */
+        border-radius: 8px;
+       
+    }
+
+    /* Ajuste para el bloque de Instagram en móvil */
+    .video-container .instagram-media,
+    .video-container iframe {
+        width: 100% !important;
+        max-width: 310px !important;
+        height: 480px !important; /* Altura cómoda para ver el Reel en vertical en teléfonos */
     }
 }
 /* MEMBERS */
